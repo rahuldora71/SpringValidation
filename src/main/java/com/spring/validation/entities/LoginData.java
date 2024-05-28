@@ -12,8 +12,9 @@ public class LoginData {
 	@Size(min=3,max = 12,message = "Username must be 3-12 characters!")
 	private String userName;
 	@Email(message = "Invalid Email")
+	@NotBlank(message = "Please enter your email")
 	private String email;
-	@AssertTrue
+	@AssertTrue(message = "Must agree terms and conditions")
 	private boolean agreed;
 	
 	

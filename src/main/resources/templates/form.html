@@ -12,17 +12,18 @@
 
 </head>
 
-<body>
+<body style="background: #e2e2e2;">
 	<div class="container">
 		<div class="row mt-5 ">
 			<div class="col-md-6 offset-md-3">
-				<form th:action="@{/process}" method="post" th:object="${loginData}">
+				<form th:action="@{/process}" method="post" th:object="${loginData}"
+					class="bg-white p-4">
 
 					<h1 class="text-center">Signup here</h1>
 					<div class="form-group">
 						<label for="exampleInputEmail1" class="form-label">UserName</label>
 						<input type="text" name="userName"
-							th:classappend="${#fields.hasErrors('userName')?'is-invalid':'form-control is-valid'}"
+							th:classappend="${#fields.hasErrors('userName')?'is-invalid':''}"
 							th:value="${loginData.userName}" class="form-control "
 							id="exampleInputEmail1" aria-describedby="emailHelp">
 
@@ -39,23 +40,31 @@
 					<div class="mb-3">
 						<label for="exampleInputPassword1" class="form-label">Email</label>
 						<input type="text" name="email" th:value="${loginData.email}"
-							th:classappend="${#fields.hasErrors('email')?'is-invalid':'form-control is-valid'}"
+							th:classappend="${#fields.hasErrors('email')?'is-invalid':''}"
 							class="form-control" id="exampleInputPassword1">
 						<div th:each="e : ${#fields.errors('email')}" th:text="${e}"
 							id="validationServer03Feedback" class="invalid-feedback"></div>
 					</div>
 
 
-					<div class="mb-3 form-check">
-						<input th:classappend="${#fields.hasErrors('agreed')?'is-invalid':'is-valid'}"
-						type="checkbox" class="form-check-input" id="exampleCheck1">
-						
-						<label for="exampleCheck1">Agree terms and Conditions</label>
+					<div class="mb-3  form-check">
+						<input
+							th:classappend="${#fields.hasErrors('agreed')?'is-invalid':''}"
+							name="agreed" type="checkbox" class="form-check-input "
+							id="exampleCheck1"> <label for="exampleCheck1">Agree
+							terms and Conditions</label>
 						<div th:each="e : ${#fields.errors('agreed')}" th:text="${e}"
 							id="validationServer03Feedback" class="invalid-feedback"></div>
-		
+
 					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
+
+
+
+
+					<div class="container text-center">
+
+						<button type="submit" class="btn  btn-primary">Submit</button>
+					</div>
 				</form>
 
 
